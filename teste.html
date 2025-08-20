@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desconecta.ai</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Desconecta.ai</div>
+        <p>Mais que um site, uma experiência.</p>
+    </header>
+
+    <main>
+        <section class="intro-section">
+            <h1>Desconecte para se conectar.</h1>
+            <p>Criado por adolescentes, para adolescentes. Vamos juntos descobrir um equilíbrio saudável com o mundo digital.</p>
+        </section>
+
+        <section id="quiz" class="feature-section">
+            <h2>Qual é o seu tipo digital?</h2>
+            <p>Descubra seu perfil com nosso quiz interativo!</p>
+            <button id="start-quiz-btn">Começar o Quiz</button>
+            <div id="quiz-container" class="hidden">
+                <div id="quiz-progress">Pergunta <span id="current-question-number">1</span> de <span id="total-questions"></span></div>
+                <div id="question-text"></div>
+                <div id="answer-buttons" class="btn-grid"></div>
+                <div id="result-container" class="hidden">
+                    <h3>Seu tipo digital é...</h3>
+                    <h4 id="profile-title"></h4>
+                    <p id="profile-description"></p>
+                    <div id="sub-profiles"></div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="black-screen-challenge" class="feature-section">
+            <h2>O Desafio do Modo Tela Preta</h2>
+            <p>Escolha a duração e desafie-se a uma pausa consciente!</p>
+            <div class="challenge-options">
+                <button class="start-challenge-btn" data-duration="15">15 Minutos (+50 pontos)</button>
+                <button class="start-challenge-btn" data-duration="30">30 Minutos (+100 pontos)</button>
+                <button class="start-challenge-btn" data-duration="60">60 Minutos (+200 pontos)</button>
+            </div>
+            <div id="challenge-container" class="hidden">
+                <div id="challenge-timer">
+                    <span id="minutes"></span>:<span id="seconds"></span>
+                    <div id="timer-progress-bar"></div>
+                </div>
+                <div id="challenge-reflection"></div>
+                <div id="challenge-complete" class="hidden">
+                    <h3>Parabéns! Desafio concluído.</h3>
+                    <p>Você ganhou <span id="points-earned"></span> pontos!</p>
+                </div>
+            </div>
+            <p class="points-display">Seus pontos: <span id="total-points">0</span></p>
+        </section>
+
+        <hr>
+
+        <section id="analog-map" class="feature-section">
+            <h2>Mapa de Ideias Analógico</h2>
+            <p>Explore ilhas de inspiração para atividades offline. Clique para saber mais.</p>
+            <div class="map-container">
+                <div class="island" data-activity="Desenhe a capa do seu próximo álbum imaginário." style="background-image: url('criatividade.png');"></div>
+                <div class="island" data-activity="Ligue para um amigo e converse sobre algo nada digital." style="background-image: url('conexao.png');"></div>
+                <div class="island" data-activity="Pratique 10 minutos de alongamento." style="background-image: url('movimento.png');"></div>
+                <div class="island" data-activity="Leia um capítulo de um livro." style="background-image: url('leitura.png');"></div>
+                <div class="island" data-activity="Ajude em alguma tarefa doméstica." style="background-image: url('ajuda.png');"></div>
+            </div>
+            <div id="island-info">Clique em uma ilha para ver a sugestão.</div>
+        </section>
+
+        <hr>
+
+        <section id="time-dashboard" class="feature-section">
+            <h2>Seu Tempo Digital (Simulação)</h2>
+            <p>Estime o tempo que você passa em cada app e veja o impacto real.</p>
+            <form id="time-form">
+                <div class="form-group">
+                    <label for="instagram-time">Instagram (horas/dia):</label>
+                    <input type="number" id="instagram-time" name="instagram-time" min="0" value="1">
+                </div>
+                <div class="form-group">
+                    <label for="tiktok-time">TikTok (horas/dia):</label>
+                    <input type="number" id="tiktok-time" name="tiktok-time" min="0" value="2">
+                </div>
+                <div class="form-group">
+                    <label for="youtube-time">YouTube (horas/dia):</label>
+                    <input type="number" id="youtube-time" name="youtube-time" min="0" value="1.5">
+                </div>
+                <div class="form-group">
+                    <label for="other-time">Outros (horas/dia):</label>
+                    <input type="number" id="other-time" name="other-time" min="0" value="0.5">
+                </div>
+                <button type="submit">Gerar Gráfico</button>
+            </form>
+            <div class="chart-container">
+                <canvas id="timeChart"></canvas>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="short-docs" class="feature-section">
+            <h2>Biblioteca de "Short Docs"</h2>
+            <p>Vídeos curtos para entender a ciência por trás do mundo digital.</p>
+            <div class="video-grid">
+                </div>
+        </section>
+
+        <hr>
+
+        <section id="forum" class="feature-section">
+            <h2>Fórum de Discussão (Simulado)</h2>
+            <p>Leia o que outras pessoas estão pensando sobre desconexão.</p>
+            <div id="forum-posts">
+                </div>
+            <div id="forum-input">
+                <textarea id="forum-message-box" placeholder="Escreva sua mensagem..."></textarea>
+                <button id="send-message-btn">Enviar</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Desconecta.ai - Um projeto para inspirar a reconexão.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

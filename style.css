@@ -1,0 +1,347 @@
+:root {
+    --primary-color: #5A7E7B; /* Um verde-azulado suave */
+    --secondary-color: #F4C49A; /* Um tom de pêssego */
+    --background-color: #F8F4F0; /* Off-white, tom de papel */
+    --text-color: #333;
+    --card-color: #EAE6E2;
+    --dark-text-color: #1a1a1a;
+    --progress-bar-color: #8CC0DE;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease; /* Para a tela preta */
+}
+
+body.black-screen {
+    background-color: #000;
+    color: #fff;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+main {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.feature-section {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+h1, h2, h3, h4 {
+    color: var(--dark-text-color);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+button, .challenge-options button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: transform 0.2s, background-color 0.2s;
+    margin: 0.25rem;
+}
+
+button:hover, .challenge-options button:hover {
+    background-color: #4a6a68;
+    transform: translateY(-2px);
+}
+
+button:active, .challenge-options button:active {
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ccc;
+    margin: 3rem 0;
+}
+
+/* Quiz */
+#quiz-progress {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 0.5rem;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-grid button {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: var(--card-color);
+    color: var(--dark-text-color);
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+.btn-grid button:hover {
+    background-color: #d4d1ce;
+}
+
+.answer-correct {
+    background-color: #a7e9a7 !important;
+}
+
+.answer-incorrect {
+    background-color: #f48fb1 !important;
+}
+
+#sub-profiles {
+    margin-top: 1.5rem;
+    text-align: left;
+}
+
+#sub-profiles h5 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Black Screen Challenge */
+.challenge-options {
+    margin-bottom: 1.5rem;
+}
+
+#challenge-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#challenge-timer {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: 1rem;
+    position: relative;
+    width: 200px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#timer-progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#timer-progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: var(--progress-bar-color);
+    border-radius: 5px;
+    transition: width 0.3s linear;
+}
+
+#challenge-reflection {
+    font-size: 1.25rem;
+    font-style: italic;
+    margin-top: 2rem;
+    animation: fade-in-out 5s infinite;
+}
+
+@keyframes fade-in-out {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+#challenge-complete {
+    margin-top: 2rem;
+    color: var(--secondary-color);
+}
+
+/* Analog Map */
+.map-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.island {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 3px solid var(--secondary-color);
+    cursor: pointer;
+    transition: transform 0.3s;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.island:hover {
+    transform: scale(1.1);
+}
+
+#island-info {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #555;
+}
+
+/* Time Dashboard */
+.form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.chart-container {
+    max-width: 600px;
+    margin: 2rem auto 0;
+}
+
+/* Short Docs & Forum */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.video-container {
+    background-color: var(--card-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.video-container h4 {
+    margin-top: 0;
+}
+
+#forum-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+#forum-posts .post {
+    background-color: var(--card-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.post-title {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0;
+}
+
+.post-content {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0;
+}
+
+.like-btn:hover {
+    color: #d8b083;
+}
+
+#forum-input {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#forum-message-box {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 100px;
+}
